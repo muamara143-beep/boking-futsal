@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Lapangan Futsal Serang</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #4CAF50; color: white; text-align: center; padding: 20px; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 10px; font-weight: bold; }
+        select, input { padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        button { margin-top: 20px; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .lapangan { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .lapangan h3 { margin: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Booking Lapangan Futsal Serang</h1>
+        <p>Harga: Rp100.000 per jam | Lokasi: Serang, Banten</p>
+    </header>
+    <div class="container">
+        <h2>Jenis Lapangan</h2>
+        <div class="lapangan">
+            <h3>Lapangan A (Standar Indoor)</h3>
+            <p>Fasilitas: Lantai sintetis, lampu LED, tribun kecil.</p>
+        </div>
+        <div class="lapangan">
+            <h3>Lapangan B (Outdoor dengan Lampu)</h3>
+            <p>Fasilitas: Rumput sintetis, lampu malam, area parkir.</p>
+        </div>
+        <div class="lapangan">
+            <h3>Lapangan C (VIP dengan Tribun)</h3>
+            <p>Fasilitas: Lantai premium, tribun besar, AC, kafe.</p>
+        </div>
+        
+        <h2>Form Booking</h2>
+        <form id="bookingForm">
+            <label for="lapangan">Pilih Lapangan:</label>
+            <select id="lapangan" required>
+                <option value="">-- Pilih --</option>
+                <option value="A">Lapangan A</option>
+                <option value="B">Lapangan B</option>
+                <option value="C">Lapangan C</option>
+            </select>
+            
+            <label for="tanggal">Tanggal:</label>
+            <input type="date" id="tanggal" required>
+            
+            <label for="waktu">Waktu (Jam):</label>
+            <select id="waktu" required>
+                <option value="">-- Pilih --</option>
+                <option value="06:00-07:00">06:00 - 07:00</option>
+                <option value="07:00-08:00">07:00 - 08:00</option>
+                <!-- Tambah lebih banyak slot jika perlu -->
+                <option value="20:00-21:00">20:00 - 21:00</option>
+            </select>
+            
+            <label for="nama">Nama Pemesan:</label>
+            <input type="text" id="nama" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="pembayaran">Jenis Pembayaran:</label>
+            <select id="pembayaran" required>
+                <option value="">-- Pilih --</option>
+                <option value="Transfer Bank">Transfer Bank (BCA/Mandiri)</option>
+                <option value="E-Wallet">E-Wallet (Gopay/OVO/Dana)</option>
+                <option value="Kartu Kredit">Kartu Kredit/Debit</option>
+            </select>
+            
+            <p><strong>Total Harga: Rp100.000</strong></p>
+            <button type="submit">Bayar & Konfirmasi</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const lapangan = document.getElementById('lapangan').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const waktu = document.getElementById('waktu').value;
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const pembayaran = document.getElementById('pembayaran').value;
+            
+            if (lapangan && tanggal && waktu && nama && email && pembayaran) {
+                alert(`Booking berhasil!\nLapangan: ${lapangan}\nTanggal: ${tanggal}\nWaktu: ${waktu}\nNama: ${nama}\nEmail: ${email}\nPembayaran: ${pembayaran}\nTotal: Rp100.000\n\n(Simulasi pembayaran - untuk nyata, integrasikan gateway seperti Midtrans)`);
+                // Di sini bisa tambah kode untuk kirim data ke server
+            } else {
+                alert('Harap isi semua field!');
+            }
+        });
+    </script>
+</body>
+</html>
